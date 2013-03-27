@@ -1,0 +1,3 @@
+-cp src/
+-main Sample1
+-swf bin/sample1.swf

@@ -1,0 +1,3 @@
+-cp src/
+-main Sample1
+-php bin/sample1

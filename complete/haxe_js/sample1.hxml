@@ -1,0 +1,3 @@
+-cp src/
+-main Sample1
+-js bin/sample1.js

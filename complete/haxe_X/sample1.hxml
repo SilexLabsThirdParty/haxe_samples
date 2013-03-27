@@ -1,0 +1,17 @@
+
+-cp src/
+-main Sample1
+-swf bin/sample1.swf
+
+--next
+
+-cp src/
+-main Sample1
+-js bin/sample1.js
+
+
+--next
+
+-cp src/
+-main Sample1
+-php bin/sample1
