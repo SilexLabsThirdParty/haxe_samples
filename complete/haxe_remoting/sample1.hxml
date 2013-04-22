@@ -1,17 +1,17 @@
 
 -cp src/
--main Sample1
+-main Sample1Client
 -swf bin/sample1.swf
 
 --next
 
 -cp src/
--main Sample1
+-main Sample1Client
 -js bin/sample1.js
 
 
 --next
 
 -cp src/
--main Sample1
+-main Sample1Server
 -php bin/sample1

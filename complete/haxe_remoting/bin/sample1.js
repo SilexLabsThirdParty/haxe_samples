@@ -370,20 +370,22 @@ Reflect.makeVarArgs = function(f) {
 		return f(a);
 	};
 }
-var Sample1 = $hxClasses["Sample1"] = function() {
-	var myDiv = js.Lib.document.getElementById("myDiv");
-	var onResult = function(r) {
-		myDiv.innerHTML = r;
-	};
+var Sample1Client = $hxClasses["Sample1Client"] = function() {
+	this.myName = "Wxrld";
 	var cnx = haxe.remoting.HttpAsyncConnection.urlConnect("sample1/index.php");
-	cnx.resolve("api").resolve("getFileContent").call([],onResult);
+	cnx.resolve("api").resolve("sayHello").call([this.myName],$bind(this,this.onResult));
 };
-Sample1.__name__ = ["Sample1"];
-Sample1.main = function() {
-	new Sample1();
+Sample1Client.__name__ = ["Sample1Client"];
+Sample1Client.main = function() {
+	new Sample1Client();
 }
-Sample1.prototype = {
-	__class__: Sample1
+Sample1Client.prototype = {
+	onResult: function(result) {
+		var myDiv = js.Lib.document.getElementById("myDiv");
+		myDiv.innerHTML = result;
+	}
+	,myName: null
+	,__class__: Sample1Client
 }
 var Std = $hxClasses["Std"] = function() { }
 Std.__name__ = ["Std"];
@@ -1657,6 +1659,8 @@ js.Lib.eval = function(code) {
 js.Lib.setErrorHandler = function(f) {
 	js.Lib.onerror = f;
 }
+var $_;
+function $bind(o,m) { var f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; return f; };
 if(Array.prototype.indexOf) HxOverrides.remove = function(a,o) {
 	var i = a.indexOf(o);
 	if(i == -1) return false;
@@ -1720,4 +1724,4 @@ haxe.Unserializer.DEFAULT_RESOLVER = Type;
 haxe.Unserializer.BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:";
 haxe.Unserializer.CODES = null;
 js.Lib.onerror = null;
-Sample1.main();
+Sample1Client.main();
