@@ -29,24 +29,12 @@ class Sample1 {
 				<TITLE>Haxe demo by Silex Labs</TITLE>
 			</HEAD>
 			<BODY>
-			<P>::content::</P>
+				<P>Hello "+myName+"!</P>
 			</BODY>
 		</HTML>";
-
-		// insert the text
-		html = StringTools.replace(html, "::content::", sayHello( myName ));
 
 		// return the HTML to the browser
 		php.Lib.print(html);
 	}
 	
-	/** 
-	 * method used to build the "Hello Wxrld!" string
-	 */
-	function sayHello(name : String) : String {
-
-		// returns the concatenated string
-		return "Hello " + name + "!";
-
-	}
 }

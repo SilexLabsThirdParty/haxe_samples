@@ -26,27 +26,10 @@ class Sample2 {
 		// read the HTML from file
 		var html = php.io.File.getContent("test.html");
 
-		// retrieve the text from GET
-		var text;
-		if (php.Web.getParams().exists('text'))
-			text = sayHello(php.Web.getParams().get("text"));
-		else
-			text = sayHello(myName);
-
-		// insert the text 
-		html = StringTools.replace(html, "::content::", text);
+		// insert the name 
+		html = StringTools.replace(html, "::myName::", myName);
 
 		// return the HTML to the browser
 		php.Lib.print(html);
-	}
-	
-	/** 
-	 * method used to build the "Hello Wxrld!" string
-	 */
-	function sayHello(name : String) : String {
-
-		// returns the concatenated string
-		return "Hello " + name + "!";
-
 	}
 }
