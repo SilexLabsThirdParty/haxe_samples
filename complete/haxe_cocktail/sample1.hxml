@@ -1,0 +1,8 @@
+-cp src/
+-main Sample1
+-swf bin/sample1.swf
+
+-lib cocktail
+-swf-version 10.2
+--remap js:cocktail
+--macro Cocktail.create('bin/test.html')
